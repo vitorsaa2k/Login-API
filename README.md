@@ -17,7 +17,7 @@
  encrypts the password received by the user and save it in the data-base.
  This is a NoSQL server and designed to use mongoDB as data-base.  
    
-it will either send a "FAILED" or "SUCCESS" status and with a message descripting what heppenned
+it will either send a "FAILED" or "SUCCESS" status and with a message descripting what heppened
 ```javascript
  {
     status: "FAILED"
