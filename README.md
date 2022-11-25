@@ -29,7 +29,7 @@ it will either send a "FAILED" or "SUCCESS" status and with a message descriptin
 
  You just need to substitute the "MONGODB_URI" in the .env file.
  ```javascript
- MONGODB_URI=your server ip or whatever
+ MONGODB_URI=your data-base ip or whatever
  ```  
  After that, you should be done to run nodemon.
 
