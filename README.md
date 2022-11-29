@@ -38,6 +38,6 @@ npm run nodemon
 ```
 Which with the coming node.js 19 can be replaced by
 ```bash
-node --watch index.js
+node --watch server.js
 ```
 
