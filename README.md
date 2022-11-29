@@ -36,4 +36,8 @@ it will either send a "FAILED" or "SUCCESS" status and with a message descriptin
 ```bash
 npm run nodemon
 ```
+Which with the coming node.js 19 can be replaced by
+```bash
+node --watch index.js
+```
 
