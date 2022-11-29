@@ -66,7 +66,19 @@ profileRouter.post('/signup', async (req, res) => {
 
 profileRouter.get('/profile/:name', async (req, res) => {
   const user = await User.findOne({name: req.params.name})
-  res.json(user)
+  if(user) {
+    res.json({
+      status: 'SUCCESS',
+      message: 'User found',
+      user: user
+    })
+  } else {
+    res.json({
+      status: 'FAILED',
+      message: 'User not found',
+      user: user
+    })
+  }
 })
 
 profileRouter.put('/profile/:name', async (req, res) => {
@@ -123,6 +135,11 @@ profileRouter.post('/signin', async (req, res) => {
     }
 
   }
+
+  profileRouter.delete('/profile/:name', async (req, res) => {
+    let user = await User.findOne({name: req.params.name})
+    await User.deleteOne(user)
+  })
 
 })
 
