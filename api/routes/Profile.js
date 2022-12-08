@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 
 
 profileRouter.post('/signup', async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*")
   let {email, password, name} = req.body
   name = name.trim()
   email = email.trim()
@@ -126,7 +125,7 @@ profileRouter.post('/signin', async (req, res) => {
     } else {
       res.json({
         status: 'FAILED',
-        message: 'User doesnt exists',
+        message: 'Email not found',
         user: {
           email: email,
           password: password
