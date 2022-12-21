@@ -75,20 +75,27 @@ profileRouter.get('/profile/:name', async (req, res) => {
     res.json({
       status: 'FAILED',
       message: 'User not found',
-      user: user
     })
   }
 })
 
 profileRouter.put('/profile/:name', async (req, res) => {
   const user = await User.findOne({name: req.params.name})
-  await user.updateOne(req.body)
-  await user.save()
-  res.json({
-    status: 'SUCCESS',
-    message: 'The description was changed',
-    user: await User.findOne({name: req.params.name})
-  })
+  if(req.body.description.length > 0){
+    await user.updateOne(req.body)
+    await user.save()
+    res.json({
+      status: 'SUCCESS',
+      message: 'The description was changed',
+      user: await User.findOne({name: req.params.name})
+    })
+  } else {
+    res.json({
+      status: 'FAILED',
+      message: 'The description is too small',
+      user: await User.findOne({name: req.params.name})
+    })
+  }
 })
 
 profileRouter.post('/signin', async (req, res) => {
@@ -134,12 +141,29 @@ profileRouter.post('/signin', async (req, res) => {
     }
 
   }
-
-  profileRouter.delete('/profile/:name', async (req, res) => {
-    let user = await User.findOne({name: req.params.name})
-    await User.deleteOne(user)
-  })
-
 })
+
+profileRouter.delete('/profile/:name', async (req, res) => {
+  let user = await User.findOne({name: req.params.name})
+  if(user){
+    await User.deleteOne(user).then(response => {
+      res.json({
+        status: 'SUCCESS',
+        message: 'User deleted'
+      })
+    })
+  } else {
+    res.json({
+      status: 'FAILED',
+      message: 'User not found'
+    })
+  }
+})
+  
+  profileRouter.delete('/teste', async (req, res) => {
+    res.json({
+      teste: 'saaa'
+    })
+  })
 
 module.exports = profileRouter
