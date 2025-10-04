@@ -27,9 +27,10 @@ it will either send a "FAILED" or "SUCCESS" status and with a message descriptin
 
 ## How to setup the server
 
- You just need to substitute the "MONGODB_URI" in the .env file.
+ You just need to substitute the "MONGODB_URI" in the .env file and provide which port the server should run in.
  ```javascript
  MONGODB_URI=your data-base ip or whatever
+ PORT=3000
  ```  
  After that, you should be done to run nodemon.
 
