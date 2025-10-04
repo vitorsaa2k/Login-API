@@ -14,10 +14,10 @@
 ## How it works and details
 
  It veryfies the inputs received by the user using rejex (which i dont know how it works lol)
- encrypts the password received by the user and save it in the data-base.
+ hash the password received by the user and save it in the data-base.
  This is a NoSQL server and designed to use mongoDB as data-base.  
    
-it will either send a "FAILED" or "SUCCESS" status and with a message descripting what heppened
+it will either send a "FAILED" or "SUCCESS" status and with a message descripting what happened
 ```javascript
  {
     status: "FAILED"
